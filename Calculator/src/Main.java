@@ -10,7 +10,7 @@ public class Main {
         String input = scanner.nextLine();
         input = input.toUpperCase();
 
-        String output = calc(input);
+        calc(input);
 
     }
     public static String calc(String input){
