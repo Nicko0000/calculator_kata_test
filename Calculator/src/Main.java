@@ -91,26 +91,6 @@ public class Main {
             secondenrom = false;
         }
 
-        if(firstenrom == false){
-
-            first = first.toUpperCase();
-
-            try {
-                RomanNumbers.valueOf(first);
-            }catch (IllegalArgumentException e) {
-                firstenrom = false;
-            }
-
-            if (firstenrom == false){
-                try {
-                    throw new IOException();
-                } catch (IOException e) {
-                    System.out.println("Illegal symbol");
-                    System.exit(1);
-                }
-            }
-        }
-
         if((firstenrom == true && secondenrom == false) ||
                 (firstenrom == false && secondenrom == true)) {
             try {
