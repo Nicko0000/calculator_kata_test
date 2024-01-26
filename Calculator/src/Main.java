@@ -106,6 +106,7 @@ public class Main {
                     throw new IOException();
                 } catch (IOException e) {
                     System.out.println("Illegal symbol");
+                    System.exit(1);
                 }
             }
         }
