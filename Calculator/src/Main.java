@@ -43,17 +43,18 @@ public class Main {
             }
 
         }
+        
         String str1 = splitted[0];
         String str2 = splitted[1];
 
-        if (str1 == null || str2 == null){
+        if (str1 == null || str2 == null) {
             try {
                 throw new IOException();
             } catch (IOException e) {
-                System.out.println("String is not a mathematical operation");
-                System.exit(1);
+                throw new RuntimeException(e);
             }
         }
+        
         String str11 = str1.replace(",","");
         String str111 = str11.replace(" ","");
         String first = str111.replace("[","");
@@ -64,14 +65,11 @@ public class Main {
 
         String testout = first + operation + second;
 
-        for(int k = 0; k < second1.length; k++) {
-            if (string.length > testout.length()){
-                try {
-                    throw new IllegalArgumentException();
-                } catch (IllegalArgumentException e) {
-                    System.out.println("Format does not suit the task");
-                    System.exit(1);
-                }
+        if (string.length > testout.length()) {
+            try {
+                throw new IOException();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
 
@@ -96,8 +94,7 @@ public class Main {
             try {
                 throw new IOException();
             } catch (IOException e) {
-                System.out.println("Different number systems");
-                System.exit(1);
+                throw new RuntimeException(e);
             }
         }
 
@@ -108,15 +105,14 @@ public class Main {
             int firstint = Integer.parseInt(first);
             int secondint = Integer.parseInt(second);
 
-            if(firstint > 10 || firstint < 1 ||
-                    secondint > 10 || secondint < 1) {
-                try {
-                    throw new IOException();
-                } catch (IOException e) {
-                    System.out.println("Use numbers from 1 to 10");
-                    System.exit(1);
+            if (firstint > 10 || firstint < 1 ||
+                        secondint > 10 || secondint < 1) {
+                    try {
+                        throw new IOException();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
-            }
 
             switch (operation) {
                 case "+" :
@@ -149,15 +145,14 @@ public class Main {
             int operand1 = Integer.parseInt(operand);
             int operand2 = Integer.parseInt(operands);
 
-            if(operand1 > 10 || operand2 > 10 ||
-            operand1 < 1 || operand2 < 1) {
-                try {
-                    throw new IOException();
-                } catch (IOException e) {
-                    System.out.println("Use numbers from I to X");
-                    System.exit(1);
+            if (operand1 > 10 || operand2 > 10 ||
+                        operand1 < 1 || operand2 < 1) {
+                    try {
+                        throw new IOException();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
-            }
 
             switch (operation) {
                 case "+" :
@@ -166,11 +161,10 @@ public class Main {
                 case "-" :
                     if (operand2 > operand1){
                         try {
-                            throw new IOException();
-                        } catch (IOException e) {
-                            System.out.println("No negative numbers in the Roman system");
-                            System.exit(1);
-                        }
+                                throw new IOException();
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
                     }else {
                         order = operand1 - operand2;
                     }break;
